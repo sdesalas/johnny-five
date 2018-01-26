@@ -38,11 +38,11 @@ board.on("ready", function() {
     // console.log("  fahrenheit   : ", this.thermometer.fahrenheit);
     // console.log("--------------------------------------");
 
-    // console.log("Accelerometer");
-    // console.log("  x            : ", this.accelerometer.x);
-    // console.log("  y            : ", this.accelerometer.y);
-    // console.log("  z            : ", this.accelerometer.z);
-    // console.log("--------------------------------------");
+    console.log("Accelerometer");
+    console.log("  x            : ", this.accelerometer.x);
+    console.log("  y            : ", this.accelerometer.y);
+    console.log("  z            : ", this.accelerometer.z);
+    console.log("--------------------------------------");
 
     console.log("magnetometer");
     console.log("  heading : ", Math.floor(this.magnetometer.heading));
