@@ -27,10 +27,11 @@ board.on("ready", function() {
 
   console.log(layout);
 
+  this.samplingInterval(1000);
+
   var imu = new five.IMU({
     controller: "LSM303C"
   });
-
 
   imu.on("change", function() {
     // console.log("Thermometer");
@@ -38,18 +39,35 @@ board.on("ready", function() {
     // console.log("  fahrenheit   : ", this.thermometer.fahrenheit);
     // console.log("--------------------------------------");
 
-    console.log("Accelerometer");
-    console.log("  x            : ", this.accelerometer.x);
-    console.log("  y            : ", this.accelerometer.y);
-    console.log("  z            : ", this.accelerometer.z);
-    console.log("--------------------------------------");
+    if (this.accelerometer) {
+      console.log("Accelerometer");
+      console.log("  x            : ", this.accelerometer.x);
+      console.log("  y            : ", this.accelerometer.y);
+      console.log("  z            : ", this.accelerometer.z);
+      console.log("  pitch        : ", this.accelerometer.pitch);
+      console.log("  roll         : ", this.accelerometer.roll);
+      console.log("  acceleration : ", this.accelerometer.acceleration);
+      console.log("  inclination  : ", this.accelerometer.inclination);
+      console.log("  orientation  : ", this.accelerometer.orientation);
+      console.log("--------------------------------------");
+    }
 
-    console.log("magnetometer");
-    console.log("  heading : ", Math.floor(this.magnetometer.heading));
-    //console.log("  bearing : ", this.magnetometer.bearing.name);
-    console.log("  x            : ", this.magnetometer.heading.x);
-    console.log("  y            : ", this.magnetometer.heading.y);
-    console.log("  z            : ", this.magnetometer.heading.z);
-    console.log("--------------------------------------");
+    if (this.magnetometer) {
+      console.log("magnetometer");
+      console.log("  heading : ", Math.floor(this.magnetometer.heading));
+      //console.log("  bearing : ", this.magnetometer.bearing.name);
+      console.log("  x            : ", this.magnetometer.raw.x);
+      console.log("  y            : ", this.magnetometer.raw.y);
+      console.log("  z            : ", this.magnetometer.raw.z);
+      console.log("--------------------------------------");
+    }
+
+    if (this.thermometer) {
+      console.log("Thermometer");
+      console.log("  celsius      : ", this.thermometer.celsius);
+      console.log("  fahrenheit   : ", this.thermometer.fahrenheit);
+      console.log("--------------------------------------");
+    }
+    console.log("=====================================");
   });
 });
