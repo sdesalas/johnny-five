@@ -33,6 +33,8 @@ board.on("ready", function() {
     controller: "LSM303C"
   });
 
+  //console.log(imu);
+
   imu.on("change", function() {
     // console.log("Thermometer");
     // console.log("  celsius      : ", this.thermometer.celsius);
