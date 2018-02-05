@@ -15,11 +15,11 @@ board.on("ready", function() {
   var layout = `
   Board layout:
        +----------+
-       |         *| VIN   PITCH  ROLL  HEADING
+       |         *| VIN
        |         *| 3V3
-  INTA |*        *| GND     ^            /->
-  DRYM |*        *| SCL     |            |
-  INTM |*        *| SDA     Y    Z-->    \-X
+  INTA |*        *| GND
+  DRYM |*        *| SCL
+  INTM |*        *| SDA
        |         *| CSA
        |         *| CMS
        +----------+
@@ -32,6 +32,8 @@ board.on("ready", function() {
   });
 
   imu.on("change", function() {
+
+    if (Math.random() > 0.05) return;
 
     if (this.accelerometer) {
       console.log("Accelerometer");
@@ -49,7 +51,7 @@ board.on("ready", function() {
     if (this.magnetometer) {
       console.log("magnetometer");
       console.log("  heading : ", Math.floor(this.magnetometer.heading));
-      //console.log("  bearing : ", this.magnetometer.bearing.name);
+      console.log("  bearing : ", this.magnetometer.bearing.name);
       console.log("  x            : ", this.magnetometer.raw.x);
       console.log("  y            : ", this.magnetometer.raw.y);
       console.log("  z            : ", this.magnetometer.raw.z);
