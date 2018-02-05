@@ -27,19 +27,11 @@ board.on("ready", function() {
 
   console.log(layout);
 
-  this.samplingInterval(1000);
-
   var imu = new five.IMU({
     controller: "LSM303C"
   });
 
-  //console.log(imu);
-
   imu.on("change", function() {
-    // console.log("Thermometer");
-    // console.log("  celsius      : ", this.thermometer.celsius);
-    // console.log("  fahrenheit   : ", this.thermometer.fahrenheit);
-    // console.log("--------------------------------------");
 
     if (this.accelerometer) {
       console.log("Accelerometer");
@@ -70,7 +62,6 @@ board.on("ready", function() {
       console.log("  fahrenheit   : ", this.thermometer.fahrenheit);
       console.log("--------------------------------------");
     }
-    console.log("=====================================");
     console.log("");
     console.log("");
     console.log("");
