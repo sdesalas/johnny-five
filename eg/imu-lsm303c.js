@@ -7,22 +7,25 @@ board.on("ready", function() {
   // https://learn.sparkfun.com/tutorials/lsm303c-6dof-hookup-guide#hardware-assembly
   //
   // Basically uses I2C, so only 4 pins are needed:
-  // VCC --> VIN
+  // VCC --> VDD
   // GND --> GND
   // SCL --> SCL
   // SDA --> SDA
 
   var layout = `
   Board layout:
-       +----------+
-       |         *| VIN
-       |         *| 3V3
-  INTA |*        *| GND
-  DRYM |*        *| SCL
-  INTM |*        *| SDA
-       |         *| CSA
-       |         *| CMS
-       +----------+
+       +---------------+
+       |              *| GND
+       |              *| VDD_IO
+       |              *| SDA
+       |              *| SCL
+       |              *| INT_XL
+       |              *| DRYM
+       |              *| CS_XL
+       |              *| VDD
+       |              *| CS_MAG
+       |              *| INT_MAG
+       +---------------+
   `;
 
   console.log(layout);
